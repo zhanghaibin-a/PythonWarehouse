@@ -2,7 +2,7 @@
 import os,time
 import paramiko
 
-def host_name(name): #修改主机名
+def host_name(name): #修改主机名d
 	a=os.system("echo 'NETWORKING=YES' >> /etc/sysconfig/network")
 	a=os.system("echo 'HOSTNAME=%s' >> /etc/sysconfig/network" %(name))
 	a=os.system("hostnamectl set-hostname %s" %(name))
