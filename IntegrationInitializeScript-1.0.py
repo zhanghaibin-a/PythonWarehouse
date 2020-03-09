@@ -10,7 +10,7 @@ class integration():
 
     def ssh_connect(self):
         try:
-            """paramiko ssh初始化连1接"""
+            """paramiko ssh初始化连接"""
             print(self.ip,self.user,self.passwd)
             self.client=paramiko.SSHClient()
             self.client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
