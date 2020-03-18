@@ -112,12 +112,23 @@ class integration():
         time.sleep(2)
         stdin, stdout, stderr = self.client.exec_command('df -hT')
         print(stdout.read().decode('utf-8'))
+    def admin_network(self,name,worn_ip,new_ip):
+        ##修改管理口ip
+        command="sed -i  's/%s/%s/g' /etc/sysconfig/network-scripts/ifcfg-%s"%(worn_ip,new_ip,name)
+        try:
+            self.client.exec_command(command)
+        except BaseException as err  :
+            print(err)
+        else:
+            print(stdout.read().decode('utf-8'))
+
 
     def ssh_key(self):
         """ssh免密配置"""
         pass
 
 # ssh=integration(ip='172.16.110.128',user='root',passwd='zhanghaibin')
+#admin_network=()#修改管理口ip
 # ssh.ssh_connect() #连接初始化
 # ssh.alter_host_name(host_name='txtx_email')  #主机名修改
 # ssh.stop_system_service()    #服务停止
